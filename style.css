@@ -1,0 +1,23 @@
+:root {
+    --fuente-principal: "Lora", serif;
+    --fuente-titulos: "Archivo Black", sans-serif;
+    --color-fondo: #1B1B1B;
+    --color-titulos: #E03C31;
+    --color-texto: #F8F8F0;
+    --color-links: #FFC107;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+h1,
+h2 {
+    color: var(--color-titulos);
+}
+
+a {
+    color: var(--color-links);
+}
