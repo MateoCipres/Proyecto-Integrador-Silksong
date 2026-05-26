@@ -13,7 +13,12 @@ body {
     color: var(--color-texto);
 }
 
-h1,
+h1 {
+    color: var(--color-titulos);
+    text-align: center;
+    animation: aparecer 1.9s ease;
+}
+
 h2 {
     color: var(--color-titulos);
 }
@@ -79,6 +84,7 @@ td {
     justify-content: center;
     align-items: center;
     gap: 80px;
+    animation: aparecer 1s ease;
 }
 
 .float-der {
@@ -98,4 +104,20 @@ td {
 
 #horas {
     margin-bottom: 130px;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#imagen-principal {
+    width: 100%;
+    animation: aparecer 1s ease;
 }
