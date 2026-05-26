@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logrado</title>
     <link rel="shortcut icon" href="IMAGENES/logrado.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -18,15 +22,21 @@
         <form action="">
             <fieldset>
                 <legend>FORMULARIO DE REGISTRO</legend>
-                <label for="nombre">Ingresa tu nombre de usuario:</label><br>
-                <input type="text" placeholder="nombre" required> <br><br>
-                <label for="correo">Ingresa tu correo:</label><br>
-                <input type="email" placeholder="email" required><br><br>
-                <label for="rango">¿Qué puntaje le das?</label>
-                <input type="range" name="rango" min="0" max="100" step="1"><br><br>
-                <label for="motivo">Cuentame tu experiencia platinando este juego:</label> <br>
-                <textarea rows="6" cols="25" maxlength="600" placeholder="Escriba aqui..."></textarea><br><br>
-                <input type="submit" value="Enviar">
+                <div class="par">
+                    <label for="nombre">Ingresa tu nombre de usuario:</label>
+                    <input type="text" placeholder="nombre" required>
+                    <label for="correo">Ingresa tu correo:</label>
+                    <input type="email" placeholder="email" required>
+                </div>
+                <div class="par2">
+                    <label for="rango">¿Qué puntaje le das?</label>
+                    <input type="range" name="rango" min="0" max="100" step="1">
+                </div>
+                <div class="par3">
+                    <label for="motivo">Cuentame tu experiencia platinando este juego:</label>
+                    <textarea rows="6" cols="25" maxlength="600" placeholder="Escriba aqui..."></textarea>
+                </div>
+                <input class="boton-enviar" type="submit" value="Enviar">
 
             </fieldset>
         </form>

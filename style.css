@@ -121,3 +121,40 @@ td {
     width: 100%;
     animation: aparecer 1s ease;
 }
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+    }
+    .contenedor-secciones {
+        display: grid;
+        grid-template-columns: 1fr
+    }
+    #links-externos {
+        width: 80px;
+    }
+}
+
+fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.par,
+.par2,
+.par3 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.boton-enviar {
+    grid-column: 1 / -1;
+}
