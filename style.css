@@ -14,12 +14,14 @@ body {
 }
 
 h1 {
+    font-family: var(--fuente-titulos);
     color: var(--color-titulos);
     text-align: center;
     animation: aparecer 1.9s ease;
 }
 
 h2 {
+    font-family: var(--fuente-titulos);
     color: var(--color-titulos);
 }
 
@@ -70,6 +72,7 @@ table,
 th,
 td {
     border: 1px solid var(--color-links);
+    padding: 20px;
 }
 
 .contenedor-secciones {
@@ -122,9 +125,22 @@ td {
     animation: aparecer 1s ease;
 }
 
+fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    border-radius: 50px;
+    color: #F8F8F0;
+    background-color: #A52A2A;
+    margin-bottom: 50px;
+}
+
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
+    }
+    fieldset {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -139,12 +155,9 @@ td {
     #links-externos {
         width: 80px;
     }
-}
-
-fieldset {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    fieldset {
+        grid-template-columns: 1fr;
+    }
 }
 
 .par,
@@ -157,4 +170,19 @@ fieldset {
 
 .boton-enviar {
     grid-column: 1 / -1;
+    color: #F8F8F0;
+    background-color: #1B1B1B;
+    transition: .5s, transform .5s;
+    border-radius: 50px;
+}
+
+.boton-enviar:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    color: #1B1B1B;
+    background-color: #FFC107;
+}
+
+input[type="range"] {
+    accent-color: #FFC107;
 }
