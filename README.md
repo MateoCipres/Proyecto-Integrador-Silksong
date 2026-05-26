@@ -34,6 +34,13 @@ En esta etapa mejoré el diseño de la página para que no quede como un documen
 
 ## 📸 Capturas
 
+![captura del sitio](screenshots/FUNCIONAMIENTO%20LINKS.png)
+![captura del sitio](screenshots/border%20radius%20y%20box%20shadow.png)
+![captura del sitio](screenshots/formulario%20modificado%20y%20relacionado%20con%20colores.png)
+![captura del sitio](screenshots/grid%20en%20columnas%20con%20texto%20e%20imagenes.png)
+![captura del sitio](screenshots/imagenes%20con%20texto%20a%20los%20costados.png)
+![captura del sitio](screenshots/tabla%20con%20grid.png)
+
 
 ## ✍️ Autor
 **Mateo Cipres** — Proyecto Integrador | Programación III — UTN 2026
