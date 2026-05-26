@@ -5,6 +5,10 @@
     --color-titulos: #E03C31;
     --color-texto: #F8F8F0;
     --color-links: #FFC107;
+    --color-bronce: #A97142;
+    --color-plata: #999B9B;
+    --color-hover-links: #F8D3C3;
+    --color-fieldset: #A52A2A;
 }
 
 body {
@@ -33,7 +37,7 @@ a {
 }
 
 a:hover {
-    color: #F8D3C3;
+    color: var(--color-hover-links);
     transform: scale(1.1);
 }
 
@@ -48,21 +52,21 @@ nav ul {
 
 .redondas {
     border-radius: 40px;
-    box-shadow: 0px 10px 10px #FFC107;
+    box-shadow: 0px 10px 10px var(--color-links);
     width: 200px;
     display: inline-block;
 }
 
 #bronce {
-    box-shadow: 0px 10px 10px #A97142;
+    box-shadow: 0px 10px 10px var(--color-bronce);
 }
 
 #plata {
-    box-shadow: 0px 10px 10px #999B9B;
+    box-shadow: 0px 10px 10px var(--color-plata);
 }
 
 #oro {
-    box-shadow: 0px 10px 10px #FFC107;
+    box-shadow: 0px 10px 10px var(--color-links);
 }
 
 table,
@@ -127,8 +131,8 @@ fieldset {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     border-radius: 50px;
-    color: #F8F8F0;
-    background-color: #A52A2A;
+    color: var(--color-texto);
+    background-color: var(--color-fieldset);
     margin-bottom: 50px;
 }
 
@@ -146,11 +150,7 @@ fieldset {
         flex-direction: column;
     }
     .contenedor-secciones {
-        display: grid;
-        grid-template-columns: 1fr
-    }
-    #links-externos {
-        width: 80px;
+        grid-template-columns: 1fr;
     }
     fieldset {
         grid-template-columns: 1fr;
@@ -167,8 +167,8 @@ fieldset {
 
 .boton-enviar {
     grid-column: 1 / -1;
-    color: #F8F8F0;
-    background-color: #1B1B1B;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
     transition: .5s, transform .5s;
     border-radius: 50px;
 }
@@ -176,17 +176,17 @@ fieldset {
 .boton-enviar:hover {
     cursor: pointer;
     transform: translateY(-5px);
-    color: #1B1B1B;
-    background-color: #FFC107;
+    color: var(--color-fondo);
+    background-color: var(--color-links);
 }
 
 input[type="range"] {
-    accent-color: #FFC107;
+    accent-color: var(--color-links);
 }
 
 .contenedor-secciones section {
     margin-top: 50px;
-    border: 1px solid var(--color-links);
+    border: 1px solid var(--color-fieldset);
     padding: 20px;
     border-radius: 10px;
 }
