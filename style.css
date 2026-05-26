@@ -50,6 +50,7 @@ nav ul {
     border-radius: 40px;
     box-shadow: 0px 10px 10px #FFC107;
     width: 200px;
+    display: inline-block;
 }
 
 #bronce {
@@ -62,10 +63,6 @@ nav ul {
 
 #oro {
     box-shadow: 0px 10px 10px #FFC107;
-}
-
-#links-externos {
-    display: flex;
 }
 
 table,
@@ -185,4 +182,11 @@ fieldset {
 
 input[type="range"] {
     accent-color: #FFC107;
+}
+
+.contenedor-secciones section {
+    margin-top: 50px;
+    border: 1px solid var(--color-links);
+    padding: 20px;
+    border-radius: 10px;
 }
