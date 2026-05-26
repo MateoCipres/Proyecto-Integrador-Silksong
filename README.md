@@ -36,10 +36,10 @@ En esta etapa mejoré el diseño de la página para que no quede como un documen
 
 ![captura del sitio](imagenes/border%20radius%20y%20box%20shadow.png)
 ![captura del sitio](imagenes/formulario%20modificado%20y%20relacionado%20con%20colores.png)
-![captura del sitio](imagenes/border%20radius%20y%20box%20shadow.png)
-![captura del sitio](imagenes/border%20radius%20y%20box%20shadow.png)
-![captura del sitio](imagenes/border%20radius%20y%20box%20shadow.png)
-![captura del sitio](imagenes/border%20radius%20y%20box%20shadow.png)
+![captura del sitio](imagenes/FUNCIONAMIENTO%20LINKS.png)
+![captura del sitio](imagenes/imagenes%20con%20texto%20a%20los%20costados.png)
+![captura del sitio](imagenes/tabla%20con%20grid.png)
+![captura del sitio](imagenes/grid%20en%20columnas%20con%20texto%20e%20imagenes.png)
 
 
 ## ✍️ Autor
