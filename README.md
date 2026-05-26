@@ -34,7 +34,7 @@ En esta etapa mejoré el diseño de la página para que no quede como un documen
 
 ## 📸 Capturas
 
-(imagenes/border%20radius%20y%20box%20shadow.png)
+![IMAGENES](imagenes/border%20radius%20y%20box%20shadow.png)
 (imagenes/formulario%20modificado%20y%20relacionado%20con%20colores.png)
 (imagenes/FUNCIONAMIENTO%20LINKS.png)
 (imagenes/imagenes%20con%20texto%20a%20los%20costados.png)
