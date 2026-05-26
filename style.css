@@ -66,3 +66,36 @@ th,
 td {
     border: 1px solid var(--color-links);
 }
+
+.contenedor-secciones {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.links-finales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+.float-der {
+    float: right;
+    margin-left: 20px;
+}
+
+.float-izq {
+    float: left;
+    margin-right: 20px;
+}
+
+#dificultad {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#horas {
+    margin-bottom: 130px;
+}
