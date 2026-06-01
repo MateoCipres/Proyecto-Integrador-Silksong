@@ -1,3 +1,5 @@
+/* Creo las variables para colores y fuentes */
+
 :root {
     --fuente-principal: "Lora", serif;
     --fuente-titulos: "Archivo Black", sans-serif;
@@ -11,11 +13,17 @@
     --color-fieldset: #A52A2A;
 }
 
+
+/* modifico la fuente, y los colores del body  */
+
 body {
     font-family: var(--fuente-principal);
     background-color: var(--color-fondo);
     color: var(--color-texto);
 }
+
+
+/* modifico la fuente, los colores, la alineacion; al centro y la animacion para que aparezca  */
 
 h1 {
     font-family: var(--fuente-titulos);
@@ -29,12 +37,18 @@ h2 {
     color: var(--color-titulos);
 }
 
+
+/* Le aplico color, le quito el subrayado, creo una transicion para que cambien de color y hago que se muestren en bloque */
+
 a {
     display: inline-block;
     color: var(--color-links);
     transition: color .7s, transform .5s;
     text-decoration: none;
 }
+
+
+/* Creo la transformacion para cuando apoyamos el mouse los links se agranden */
 
 a:hover {
     color: var(--color-hover-links);
@@ -49,6 +63,9 @@ nav ul {
     display: flex;
     gap: 40px;
 }
+
+
+/* Clase reutilizable para imágenes con bordes redondeados y sombra dorada */
 
 .redondas {
     border-radius: 40px;
@@ -76,6 +93,11 @@ td {
     padding: 20px;
 }
 
+
+/* Grid de 3 columnas iguales para las secciones de contenido.
+   align-items: start evita que las columnas se estiren si tienen
+   alturas distintas */
+
 .contenedor-secciones {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -90,6 +112,9 @@ td {
     gap: 80px;
     animation: aparecer 1s ease;
 }
+
+
+/* Clases para flotar imágenes a cada lado del texto */
 
 .float-der {
     float: right;
@@ -136,24 +161,54 @@ fieldset {
     margin-bottom: 50px;
 }
 
+
+/* Tablet */
+
 @media (max-width: 768px) {
+    /* El nav pasa a columna */
     nav ul {
         flex-direction: column;
     }
+    /* Fieldset de 2 columnas pasa a 1 */
     fieldset {
         grid-template-columns: 1fr;
+    }
+    /* Las imágenes flotadas dejan de flotar y se centran,
+       así no invaden el texto en pantallas medianas */
+    .float-der,
+    .float-izq {
+        float: none;
+        display: block;
+        margin: 0 auto 20px auto;
+    }
+    /* La tabla puede ser más ancha que la pantalla,
+       con overflow-x el usuario puede scrollearla horizontalmente
+       en lugar de que se corte o rompa el layout */
+    .tabla-trofeos {
+        overflow-x: auto;
+    }
+    /* Reducimos el gap de los links del footer para que no se aprieten */
+    .links-finales {
+        gap: 30px;
+    }
+    /* Las imágenes de los links del footer se achican en tablet */
+    .links-finales .redondas {
+        width: 120px;
     }
 }
 
 @media (max-width: 480px) {
-    nav ul {
-        flex-direction: column;
-    }
+    /* Las secciones pasan a 1 columna */
     .contenedor-secciones {
         grid-template-columns: 1fr;
     }
-    fieldset {
-        grid-template-columns: 1fr;
+    .links-finales {
+        flex-direction: column;
+        gap: 20px;
+    }
+    /* Las imágenes redondas del footer se achican más en celulares*/
+    .links-finales .redondas {
+        width: 80px;
     }
 }
 
@@ -164,6 +219,10 @@ fieldset {
     flex-direction: column;
     gap: 5px;
 }
+
+
+/* grid-column: 1 / -1 hace que el botón ocupe todo el ancho del grid,
+   desde la primera hasta la última columna */
 
 .boton-enviar {
     grid-column: 1 / -1;
