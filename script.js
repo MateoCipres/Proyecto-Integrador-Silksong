@@ -197,6 +197,32 @@ function inicializarHoverImagenes() {
     });
 }
 
+/* ----------------------------------------------------------
+   inicializarScrollReveal()
+   Responsabilidad: observar cada elemento con la clase
+   scroll-reveal y, cuando entra en el viewport, agregarle
+   la clase visible para disparar el fade-in en CSS.
+---------------------------------------------------------- */
+function inicializarScrollReveal() {
+    const secciones = document.querySelectorAll(".scroll-reveal");
+
+    if (secciones.length === 0) {
+        return;
+    }
+
+    const observador = new IntersectionObserver(function(entradas) {
+        entradas.forEach(function(entrada) {
+            if (entrada.isIntersecting) {
+                entrada.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.15 });
+
+    secciones.forEach(function(seccion) {
+        observador.observe(seccion);
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     mostrarTipActual();
 
@@ -208,4 +234,5 @@ document.addEventListener("DOMContentLoaded", function() {
     inicializarFiltros();
     inicializarFormulario();
     inicializarHoverImagenes();
+    inicializarScrollReveal();
 });

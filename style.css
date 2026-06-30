@@ -354,3 +354,15 @@ input[type="range"] {
 .imagenes-trofeos .contenedor-hover {
     border-radius: 40px;
 }
+
+
+/* Scroll reveal: estado inicial oculto y transición de aparición */
+
+.scroll-reveal {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+}
