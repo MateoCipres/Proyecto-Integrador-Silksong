@@ -64,13 +64,6 @@ function inicializarFiltros() {
     });
 }
 
-/* ----------------------------------------------------------
-   validarFormulario(nombre, correo)
-   Responsabilidad: verificar que nombre y correo no estén vacíos.
-   Si algún campo obligatorio falta, lanza un error con un
-   mensaje descriptivo (en vez de devolver true/false), para
-   poder capturarlo con try/catch en quien la invoque.
----------------------------------------------------------- */
 function validarFormulario(nombre, correo, experiencia) {
     if (nombre === "") {
         throw new Error("Por favor, ingresá tu nombre de usuario.");
@@ -91,11 +84,6 @@ function validarFormulario(nombre, correo, experiencia) {
     return true;
 }
 
-/* ----------------------------------------------------------
-   mostrarError(mensaje)
-   Responsabilidad: escribir el mensaje de error en el DOM
-   y asegurarse de que el mensaje de éxito esté oculto.
----------------------------------------------------------- */
 function mostrarError(mensaje) {
     const parrafoError = document.getElementById("mensaje-error");
     const parrafoExito = document.getElementById("mensaje-exito");
@@ -105,12 +93,6 @@ function mostrarError(mensaje) {
     parrafoExito.classList.add("oculto");
 }
 
-
-/* ----------------------------------------------------------
-   mostrarExito()
-   Responsabilidad: ocultar el mensaje de error y mostrar
-   el mensaje de éxito cuando la validación pasó correctamente.
----------------------------------------------------------- */
 function mostrarExito() {
     const parrafoError = document.getElementById("mensaje-error");
     const parrafoExito = document.getElementById("mensaje-exito");
@@ -119,13 +101,6 @@ function mostrarExito() {
     parrafoExito.classList.remove("oculto");
 }
 
-
-/* ----------------------------------------------------------
-   inicializarFormulario()
-   Responsabilidad: enganchar el evento submit del formulario,
-   evitar el envío real, leer los valores de nombre y correo,
-   y usar try/catch para validar y reaccionar según corresponda.
----------------------------------------------------------- */
 function inicializarFormulario() {
     const formulario = document.getElementById("form-experiencia");
 
@@ -150,11 +125,6 @@ function inicializarFormulario() {
     });
 }
 
-/* ----------------------------------------------------------
-   Array de objetos con el id de cada imagen y su descripción.
-   Se usa en inicializarHoverImagenes() para crear el texto
-   descriptivo correspondiente a cada una.
----------------------------------------------------------- */
 const descripcionesImagenes = [
     { id: "imagen-principal", texto: "Hornet, la protagonista de Silksong, lista para la aventura." },
     { id: "gif-escape", texto: "Escapando de una zona peligrosa del mapa." },
@@ -166,12 +136,6 @@ const descripcionesImagenes = [
 ];
 
 
-/* ----------------------------------------------------------
-   inicializarHoverImagenes()
-   Responsabilidad: por cada imagen del array descripcionesImagenes,
-   crear un <p> oculto con su descripción justo después de la imagen,
-   y enganchar mouseover/mouseout para mostrarlo u ocultarlo.
----------------------------------------------------------- */
 function inicializarHoverImagenes() {
     descripcionesImagenes.forEach(function(item) {
         const imagen = document.getElementById(item.id);
@@ -188,7 +152,7 @@ function inicializarHoverImagenes() {
 
         let vecesVisto = 0;
 
-        imagen.addEventListener("mouseover", function() {
+        imagen.addEventListener("mouseenter", function() {
             vecesVisto++;
             console.log(item.texto + " — vista " + vecesVisto + " veces");
         });
@@ -197,12 +161,6 @@ function inicializarHoverImagenes() {
     });
 }
 
-/* ----------------------------------------------------------
-   inicializarScrollReveal()
-   Responsabilidad: observar cada elemento con la clase
-   scroll-reveal y, cuando entra en el viewport, agregarle
-   la clase visible para disparar el fade-in en CSS.
----------------------------------------------------------- */
 function inicializarScrollReveal() {
     const secciones = document.querySelectorAll(".scroll-reveal");
 
@@ -223,6 +181,24 @@ function inicializarScrollReveal() {
     });
 }
 
+function inicializarToggleTema() {
+    const botonTema = document.getElementById("btn-tema");
+
+    if (!botonTema) {
+        return;
+    }
+
+    botonTema.addEventListener("click", function() {
+        document.body.classList.toggle("modo-claro");
+
+        if (document.body.classList.contains("modo-claro")) {
+            botonTema.textContent = "🌙 Modo oscuro";
+        } else {
+            botonTema.textContent = "☀️ Modo claro";
+        }
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     mostrarTipActual();
 
@@ -235,4 +211,5 @@ document.addEventListener("DOMContentLoaded", function() {
     inicializarFormulario();
     inicializarHoverImagenes();
     inicializarScrollReveal();
+    inicializarToggleTema();
 });

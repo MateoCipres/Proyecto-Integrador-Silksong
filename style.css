@@ -57,6 +57,8 @@ a:hover {
 
 header {
     padding: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 nav ul {
@@ -314,7 +316,6 @@ input[type="range"] {
 
 .contenedor-hover img {
     display: block;
-    width: 100%;
 }
 
 
@@ -365,4 +366,40 @@ input[type="range"] {
 
 .scroll-reveal.visible {
     opacity: 1;
+}
+
+
+/* Modo claro: sobreescribe las variables del :root cuando
+   el body tiene la clase .modo-claro */
+
+body.modo-claro {
+    --color-fondo: #F8F8F0;
+    --color-titulos: #C0392B;
+    --color-texto: #1B1B1B;
+    --color-links: #E67E22;
+    --color-hover-links: #D35400;
+    --color-fieldset: #E74C3C;
+}
+
+
+/* Botón de toggle modo oscuro/claro */
+
+#btn-tema {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 9999;
+    padding: 8px 14px;
+    border-radius: 30px;
+    border: 1px solid var(--color-links);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    cursor: pointer;
+    transition: .3s;
+    font-family: var(--fuente-principal);
+}
+
+#btn-tema:hover {
+    background-color: var(--color-links);
+    color: var(--color-fondo);
 }

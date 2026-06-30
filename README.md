@@ -32,7 +32,8 @@ En esta etapa mejoré el diseño de la página para que no quede como un documen
 - **Hover y transiciones** — los links crecen levemente con `scale` al pasar el mouse, el botón de enviar sube con `translateY`, todo con `transition` suave.
 - **Diseño responsive** — dos media queries (`768px` y `480px`) que reorganizan el menú en columna y apilan las secciones verticalmente en pantallas chicas.
 
-## 📸 Capturas
+##  Parte 3: Modificación con JavaScript
+bueno hoy les voy aexplicar como instalar juegos de equibos 360
 
 ## 📸 Capturas
 
