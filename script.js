@@ -1,24 +1,7 @@
-/* ==========================================================
-   Proyecto Integrador - Hollow Knight Silksong Platino
-   Parte 3: Interactividad y Programación con JavaScript
-   Autor: Mateo Cipres
-   ========================================================== */
-
-console.log("script.js cargado correctamente");
-
-/* ==========================================================
-   Proyecto Integrador - Hollow Knight Silksong Platino
-   Parte 3: Interactividad y Programación con JavaScript
-   Autor: Mateo Cipres
-   ========================================================== */
-
-console.log("script.js cargado correctamente");
-
-
-/* ----------------------------------------------------------
+/*
    Array con tips rápidos para el platino.
    Se usa en mostrarTipActual() para ir mostrando uno por vez.
----------------------------------------------------------- */
+
 const tipsRapidos = [
     "Completá los deseos prometidos apenas aparecen, no los dejes para el final.",
     "Usá herramientas azules contra jefes con ataques de fuego.",
@@ -29,13 +12,6 @@ const tipsRapidos = [
 /* Índice del tip que se está mostrando actualmente */
 let indiceTipActual = 0;
 
-
-/* ----------------------------------------------------------
-   mostrarTipActual()
-   Responsabilidad: tomar el tip correspondiente a indiceTipActual
-   y escribirlo dentro de <p id="tip-actual">.
-   Solo corre en index.html, por eso verificamos que el elemento exista.
----------------------------------------------------------- */
 function mostrarTipActual() {
     const parrafoTip = document.getElementById("tip-actual");
 
@@ -47,12 +23,7 @@ function mostrarTipActual() {
 }
 
 
-/* ----------------------------------------------------------
-   avanzarTip()
-   Responsabilidad: incrementar el índice del tip actual y,
-   si se pasa del último, volver al primero (comportamiento cíclico).
-   Luego invoca a mostrarTipActual() para reflejar el cambio en el DOM.
----------------------------------------------------------- */
+
 function avanzarTip() {
     indiceTipActual++;
 
@@ -63,12 +34,6 @@ function avanzarTip() {
     mostrarTipActual();
 }
 
-/* ----------------------------------------------------------
-   filtrarTrofeos(tipo)
-   Responsabilidad: recorrer todas las filas de la tabla de
-   trofeos y mostrar u ocultar cada una según coincida o no
-   con el tipo elegido. Si tipo es "todos", se muestran todas.
----------------------------------------------------------- */
 function filtrarTrofeos(tipo) {
     const tabla = document.getElementById("tabla-trofeos");
 
@@ -87,13 +52,6 @@ function filtrarTrofeos(tipo) {
     });
 }
 
-
-/* ----------------------------------------------------------
-   inicializarFiltros()
-   Responsabilidad: enganchar el evento click a cada botón de
-   filtro, marcar visualmente cuál está activo y disparar
-   filtrarTrofeos() con el tipo correspondiente.
----------------------------------------------------------- */
 function inicializarFiltros() {
     const botones = document.querySelectorAll(".btn-filtro");
 
@@ -109,10 +67,92 @@ function inicializarFiltros() {
         });
     });
 }
+
 /* ----------------------------------------------------------
-   Punto de entrada: ejecutamos las funciones de inicialización
-   una vez que el HTML terminó de cargar.
+   validarFormulario(nombre, correo)
+   Responsabilidad: verificar que nombre y correo no estén vacíos.
+   Si algún campo obligatorio falta, lanza un error con un
+   mensaje descriptivo (en vez de devolver true/false), para
+   poder capturarlo con try/catch en quien la invoque.
 ---------------------------------------------------------- */
+function validarFormulario(nombre, correo, experiencia) {
+    if (nombre === "") {
+        throw new Error("Por favor, ingresá tu nombre de usuario.");
+    }
+
+    if (correo === "") {
+        throw new Error("Por favor, ingresá tu correo.");
+    }
+
+    if (!correo.includes("@")) {
+        throw new Error("El correo ingresado no es válido, debe contener un @.");
+    }
+
+    if (experiencia === "") {
+        throw new Error("Por favor, contanos tu experiencia platinando el juego.");
+    }
+
+    return true;
+}
+
+/* ----------------------------------------------------------
+   mostrarError(mensaje)
+   Responsabilidad: escribir el mensaje de error en el DOM
+   y asegurarse de que el mensaje de éxito esté oculto.
+---------------------------------------------------------- */
+function mostrarError(mensaje) {
+    const parrafoError = document.getElementById("mensaje-error");
+    const parrafoExito = document.getElementById("mensaje-exito");
+
+    parrafoError.textContent = "⚠️ " + mensaje;
+    parrafoError.classList.remove("oculto");
+    parrafoExito.classList.add("oculto");
+}
+
+
+/* ----------------------------------------------------------
+   mostrarExito()
+   Responsabilidad: ocultar el mensaje de error y mostrar
+   el mensaje de éxito cuando la validación pasó correctamente.
+---------------------------------------------------------- */
+function mostrarExito() {
+    const parrafoError = document.getElementById("mensaje-error");
+    const parrafoExito = document.getElementById("mensaje-exito");
+
+    parrafoError.classList.add("oculto");
+    parrafoExito.classList.remove("oculto");
+}
+
+
+/* ----------------------------------------------------------
+   inicializarFormulario()
+   Responsabilidad: enganchar el evento submit del formulario,
+   evitar el envío real, leer los valores de nombre y correo,
+   y usar try/catch para validar y reaccionar según corresponda.
+---------------------------------------------------------- */
+function inicializarFormulario() {
+    const formulario = document.getElementById("form-experiencia");
+
+    if (!formulario) {
+        return;
+    }
+
+    formulario.addEventListener("submit", function(evento) {
+        evento.preventDefault();
+
+        const nombre = document.getElementById("nombre").value.trim();
+        const correo = document.getElementById("correo").value.trim();
+        const experiencia = document.getElementById("experiencia").value.trim();
+
+        try {
+            validarFormulario(nombre, correo, experiencia);
+            mostrarExito();
+            formulario.reset();
+        } catch (error) {
+            mostrarError(error.message);
+        }
+    });
+}
 document.addEventListener("DOMContentLoaded", function() {
     mostrarTipActual();
 
@@ -122,4 +162,5 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     inicializarFiltros();
+    inicializarFormulario();
 });

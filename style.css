@@ -287,3 +287,18 @@ input[type="range"] {
 .oculto {
     display: none;
 }
+
+
+/* Mensajes de validación del formulario */
+
+#mensaje-error {
+    color: var(--color-titulos);
+    font-weight: bold;
+    grid-column: 1 / -1;
+}
+
+#mensaje-exito {
+    color: var(--color-links);
+    font-weight: bold;
+    grid-column: 1 / -1;
+}

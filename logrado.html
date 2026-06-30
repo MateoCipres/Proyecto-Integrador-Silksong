@@ -20,14 +20,14 @@
     <main>
 
         <h2>Formulario</h2>
-        <form action="">
+        <form id="form-experiencia" action="" novalidate>
             <fieldset>
                 <legend>FORMULARIO DE REGISTRO</legend>
                 <div class="par">
                     <label for="nombre">Ingresa tu nombre de usuario:</label>
-                    <input type="text" placeholder="nombre" required>
+                    <input type="text" id="nombre" placeholder="nombre">
                     <label for="correo">Ingresa tu correo:</label>
-                    <input type="email" placeholder="email" required>
+                    <input type="email" id="correo" placeholder="email">
                 </div>
                 <div class="par2">
                     <label for="rango">¿Qué puntaje le das?</label>
@@ -35,8 +35,10 @@
                 </div>
                 <div class="par3">
                     <label for="motivo">Cuentame tu experiencia platinando este juego:</label>
-                    <textarea rows="6" cols="25" maxlength="600" placeholder="Escriba aqui..."></textarea>
+                    <textarea id="experiencia" rows="6" cols="25" maxlength="600" placeholder="Escriba aqui..."></textarea>
                 </div>
+                <p id="mensaje-error" class="oculto"></p>
+                <p id="mensaje-exito" class="oculto">¡Gracias por compartir tu experiencia!</p>
                 <input class="boton-enviar" type="submit" value="Enviar">
 
             </fieldset>
