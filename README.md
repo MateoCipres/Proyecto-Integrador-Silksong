@@ -32,8 +32,17 @@ En esta etapa mejoré el diseño de la página para que no quede como un documen
 - **Hover y transiciones** — los links crecen levemente con `scale` al pasar el mouse, el botón de enviar sube con `translateY`, todo con `transition` suave.
 - **Diseño responsive** — dos media queries (`768px` y `480px`) que reorganizan el menú en columna y apilan las secciones verticalmente en pantallas chicas.
 
-##  Parte 3: Modificación con JavaScript
-bueno hoy les voy aexplicar como instalar juegos de equibos 360
+## ⚡ Parte 3: Interactividad con JavaScript
+
+En esta etapa agregué todas las funcionalidades interactivas de la página usando JavaScript puro, sin librerías externas. Los cambios más importantes que hice:
+
+
+Tips rotativos — la sección de consejos tiene un botón que va rotando los tips de forma cíclica con cada click, mostrando uno a la vez en vez de listar todos juntos.
+Filtro de trofeos — agregué 4 botones (Todos, Fácil, Medio, Difícil) sobre la tabla de trofeos que muestran u ocultan las filas según su tipo de dificultad, usando atributos data-tipo en cada fila y manipulación del DOM para mostrar/ocultar.
+Validación del formulario — el formulario de logrado.html valida con JavaScript que el nombre, el correo (incluyendo que tenga un @) y el campo de experiencia no estén vacíos antes de permitir el envío. Los mensajes de error y éxito se muestran dinámicamente en el DOM. Se utilizó try/catch para controlar el flujo de validación.
+Overlay descriptivo en imágenes — al apoyar el mouse sobre las imágenes y gifs de la página aparece un overlay semitransparente con una descripción breve de cada una. El efecto usa mouseenter/mouseout en JavaScript y transiciones de opacidad en CSS.
+Scroll reveal — las secciones principales de la página aparecen con un fade-in suave a medida que el usuario va haciendo scroll, usando la API IntersectionObserver.
+Toggle modo oscuro/claro — un botón fijo en la esquina superior derecha permite cambiar entre el tema oscuro original y un tema claro, alternando una clase en el <body> que sobreescribe las variables CSS.
 
 ## 📸 Capturas
 
