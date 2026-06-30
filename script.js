@@ -63,7 +63,52 @@ function avanzarTip() {
     mostrarTipActual();
 }
 
+/* ----------------------------------------------------------
+   filtrarTrofeos(tipo)
+   Responsabilidad: recorrer todas las filas de la tabla de
+   trofeos y mostrar u ocultar cada una según coincida o no
+   con el tipo elegido. Si tipo es "todos", se muestran todas.
+---------------------------------------------------------- */
+function filtrarTrofeos(tipo) {
+    const tabla = document.getElementById("tabla-trofeos");
 
+    if (!tabla) {
+        return;
+    }
+
+    const filas = tabla.querySelectorAll("tr[data-tipo]");
+
+    filas.forEach(function(fila) {
+        if (tipo === "todos" || fila.dataset.tipo === tipo) {
+            fila.classList.remove("oculto");
+        } else {
+            fila.classList.add("oculto");
+        }
+    });
+}
+
+
+/* ----------------------------------------------------------
+   inicializarFiltros()
+   Responsabilidad: enganchar el evento click a cada botón de
+   filtro, marcar visualmente cuál está activo y disparar
+   filtrarTrofeos() con el tipo correspondiente.
+---------------------------------------------------------- */
+function inicializarFiltros() {
+    const botones = document.querySelectorAll(".btn-filtro");
+
+    botones.forEach(function(boton) {
+        boton.addEventListener("click", function() {
+            botones.forEach(function(b) {
+                b.classList.remove("activo");
+            });
+            boton.classList.add("activo");
+
+            const tipoElegido = boton.dataset.filtro;
+            filtrarTrofeos(tipoElegido);
+        });
+    });
+}
 /* ----------------------------------------------------------
    Punto de entrada: ejecutamos las funciones de inicialización
    una vez que el HTML terminó de cargar.
@@ -75,4 +120,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if (botonSiguienteTip) {
         botonSiguienteTip.addEventListener("click", avanzarTip);
     }
+
+    inicializarFiltros();
 });
