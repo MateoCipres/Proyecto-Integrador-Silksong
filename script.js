@@ -1,7 +1,3 @@
-/*
-   Array con tips rápidos para el platino.
-   Se usa en mostrarTipActual() para ir mostrando uno por vez.
-
 const tipsRapidos = [
     "Completá los deseos prometidos apenas aparecen, no los dejes para el final.",
     "Usá herramientas azules contra jefes con ataques de fuego.",
@@ -153,6 +149,54 @@ function inicializarFormulario() {
         }
     });
 }
+
+/* ----------------------------------------------------------
+   Array de objetos con el id de cada imagen y su descripción.
+   Se usa en inicializarHoverImagenes() para crear el texto
+   descriptivo correspondiente a cada una.
+---------------------------------------------------------- */
+const descripcionesImagenes = [
+    { id: "imagen-principal", texto: "Hornet, la protagonista de Silksong, lista para la aventura." },
+    { id: "gif-escape", texto: "Escapando de una zona peligrosa del mapa." },
+    { id: "gif-seda", texto: "Hornet recargando seda." },
+    { id: "gif-sherma", texto: "Sherma, una aliada carismática." },
+    { id: "bronce", texto: "BRONCE" },
+    { id: "plata", texto: "PLATA" },
+    { id: "oro", texto: "ORO" }
+];
+
+
+/* ----------------------------------------------------------
+   inicializarHoverImagenes()
+   Responsabilidad: por cada imagen del array descripcionesImagenes,
+   crear un <p> oculto con su descripción justo después de la imagen,
+   y enganchar mouseover/mouseout para mostrarlo u ocultarlo.
+---------------------------------------------------------- */
+function inicializarHoverImagenes() {
+    descripcionesImagenes.forEach(function(item) {
+        const imagen = document.getElementById(item.id);
+
+        if (!imagen) {
+            return;
+        }
+
+        const contenedor = imagen.parentElement;
+
+        const parrafoDescripcion = document.createElement("p");
+        parrafoDescripcion.textContent = item.texto;
+        parrafoDescripcion.classList.add("descripcion-imagen");
+
+        let vecesVisto = 0;
+
+        imagen.addEventListener("mouseover", function() {
+            vecesVisto++;
+            console.log(item.texto + " — vista " + vecesVisto + " veces");
+        });
+
+        contenedor.appendChild(parrafoDescripcion);
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     mostrarTipActual();
 
@@ -163,4 +207,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
     inicializarFiltros();
     inicializarFormulario();
+    inicializarHoverImagenes();
 });

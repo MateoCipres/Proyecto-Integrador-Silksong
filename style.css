@@ -302,3 +302,55 @@ input[type="range"] {
     font-weight: bold;
     grid-column: 1 / -1;
 }
+
+
+/* Contenedor que envuelve imagen + overlay descriptivo */
+
+.contenedor-hover {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.contenedor-hover img {
+    display: block;
+    width: 100%;
+}
+
+
+/* Efecto hover sobre imágenes: zoom suave + transición */
+
+.img-hover {
+    transition: transform .4s ease;
+}
+
+.contenedor-hover:hover .img-hover {
+    transform: scale(1.08);
+}
+
+
+/* Overlay semitransparente con el texto descriptivo */
+
+.descripcion-imagen {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgba(27, 27, 27, 0.8);
+    color: var(--color-texto);
+    font-style: italic;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+
+.contenedor-hover:hover .descripcion-imagen {
+    opacity: 1;
+}
+
+.imagenes-trofeos .contenedor-hover {
+    border-radius: 40px;
+}
